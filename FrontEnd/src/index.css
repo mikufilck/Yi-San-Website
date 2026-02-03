@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== 基础重置 ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== 全屏轮播容器 ===== */
+.hero-fullscreen {
+  height: 100vh;
+  height: 100dvh;
+  width: 100vw;
+  position: relative;
+}
+
+/* ===== 图片强制居中覆盖 ===== */
+.image-cover-center {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+/* ===== Swiper 分页器自定义样式 ===== */
+/* 轮播分页器样式 */
+.swiper-pagination {
+  position: absolute !important;
+  bottom: 40px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 10 !important;
+}
+
+.custom-pagination-bullet {
+  width: 10px !important;
+  height: 10px !important;
+  margin: 0 6px !important;
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  border-radius: 50% !important;
+  display: inline-block !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+
+.custom-pagination-bullet-active {
+  width: 30px !important;
+  background-color: rgba(255, 255, 255, 1) !important;
+  border-radius: 5px !important;
+}
+
+/* 移除轮播的左右箭头 */
+.swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
+}
+
+/* ===== 滚动条美化 ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+/* ===== 安全区域适配 ===== */
+@supports (padding-top: env(safe-area-inset-top)) {
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .swiper-pagination {
+    bottom: 30px !important;
+  }
+  
+  .custom-pagination-bullet {
+    width: 8px !important;
+    height: 8px !important;
+    margin: 0 4px !important;
+  }
+  
+  .custom-pagination-bullet-active {
+    width: 24px !important;
+  }
+}
+
+/* ===== 基础样式增强 ===== */
+@layer base {
+  body {
+    @apply antialiased text-gray-800 bg-white;
+  }
+  
+  img {
+    @apply max-w-full h-auto;
+  }
+  
+  /* 确保可点击元素显示手型光标 */
+  a, button, .cursor-pointer {
+    cursor: pointer;
+  }
+}
+
+@layer utilities {
+  /* 平滑滚动 */
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+  
+  /* 隐藏滚动条但保持滚动功能 */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* 干净的图片容器 */
+  .clean-image-container {
+    @apply w-full h-full overflow-hidden;
+  }
+  
+  .clean-image-container img {
+    @apply w-full h-full object-cover object-center;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.marble-texture {
+  background-image: 
+    linear-gradient(87deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 50%, transparent 50%, transparent 100%),
+    linear-gradient(167deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 50%, transparent 50%, transparent 100%);
+  background-size: 20px 20px, 40px 40px;
+}
+
+.gold-gradient {
+  background: linear-gradient(45deg, 
+    #fbbf24 0%, 
+    #f59e0b 25%, 
+    #d97706 50%, 
+    #b45309 75%, 
+    #92400e 100%
+  );
+  background-size: 400% 400%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.marble-overlay {
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(255,255,255,0.08) 0%, transparent 50%);
+}
+
+.writing-vertical-rl {
+  writing-mode: vertical-rl;
+}
