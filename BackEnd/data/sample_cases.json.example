@@ -1,0 +1,76 @@
+[
+  {
+    "slug": "tech-company-hq",
+    "title": "Tech Company Headquarters",
+    "chinese_title": "科技公司总部",
+    "location": "深圳, 中国",
+    "area": 3000.0,
+    "year": 2023,
+    "duration": "12个月",
+    "client": "星辰科技股份有限公司",
+    "description": "创新型科技公司总部，打造协作与创意的办公环境",
+    "detailed_description": "这是一个为科技公司设计的现代化办公空间，注重开放性和协作性。设计采用了工业风与现代风格结合，大面积使用玻璃隔断增加通透感，同时设置了多种协作空间和休息区，促进团队交流与创新。",
+    "categories": ["office"],
+    "styles": ["modern", "industrial"],
+    "status": "completed",
+    "tags": ["办公空间", "科技公司", "协作空间", "工业风", "现代设计"],
+    "featured": true,
+    "difficulty": 5,
+    "services": ["空间规划", "室内设计", "家具定制", "照明设计"],
+    "team_members": ["王一", "李静", "张伟"],
+    "awards": ["2023年最佳办公空间设计奖", "年度创新设计大奖"],
+    "testimonials": "一三设计团队专业且高效，深刻理解我们的企业文化，为我们打造了理想的办公环境，员工满意度大幅提升。",
+    "images": [
+      {
+        "id": 1,
+        "url": "/images/business/办公室.webp",
+        "thumbnail_url": "/images/business/办公室.webp",
+        "alt": "开放办公区",
+        "is_primary": true,
+        "order": 1
+      },
+      {
+        "id": 2,
+        "url": "https://images.unsplash.com/photo-1497366754035-f200968a6e72",
+        "thumbnail_url": "https://images.unsplash.com/photo-1497366754035-f200968a6e72",
+        "alt": "会议室",
+        "is_primary": false,
+        "order": 2
+      }
+    ],
+    "related_cases": []
+  },
+  {
+    "slug": "lakeside-villa",
+    "title": "Lakeside Modern Villa",
+    "chinese_title": "湖滨现代别墅",
+    "location": "杭州, 中国",
+    "area": 450.0,
+    "year": 2023,
+    "duration": "8个月",
+    "client": "张先生家庭",
+    "description": "湖畔现代主义别墅，融合自然景观与当代设计",
+    "detailed_description": "这个项目位于杭州西湖区，是一座临湖的现代别墅。设计充分考虑了湖景的借景，大面积落地窗将室外湖景引入室内。室内设计采用极简风格，注重材质与光影的运用，营造宁静雅致的居住氛围。",
+    "categories": ["residential"],
+    "styles": ["modern", "minimalist"],
+    "status": "completed",
+    "tags": ["别墅设计", "现代风格", "湖景住宅", "极简", "豪宅"],
+    "featured": true,
+    "difficulty": 4,
+    "services": ["全案设计", "施工管理", "景观设计", "智能家居"],
+    "team_members": ["王一", "李静", "张伟", "陈琳"],
+    "awards": [],
+    "testimonials": "设计团队充分考虑了我们家庭的需求，非常贴心。从空间规划到材料选择，每一个细节都体现了专业水准。",
+    "images": [
+      {
+        "id": 1,
+        "url": "/images/business/建发璞玥云山3301.webp",
+        "thumbnail_url": "/images/business/建发璞玥云山3301.webp",
+        "alt": "客厅全景",
+        "is_primary": true,
+        "order": 1
+      }
+    ],
+    "related_cases": []
+  }
+]
