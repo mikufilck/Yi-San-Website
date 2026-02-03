@@ -1,0 +1,89 @@
+/* 错落网格核心样式 */
+.featured-grid .item {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  cursor: pointer;
+}
+
+.featured-grid .one-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  opacity: 0.85;
+}
+
+.featured-grid .item:hover .one-img {
+  transform: scale(1.08);
+  opacity: 0.7;
+}
+
+/* 文字浮现逻辑 */
+.business-list {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+  color: #fff;
+  z-index: 10;
+  pointer-events: none; /* 防止文字遮挡鼠标对容器的 hover 判定 */
+}
+
+.text_threeTitle {
+  max-height: 0; /* 使用 max-height 代替 height 以实现过渡动画 */
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease, margin-top 0.5s ease;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 0;
+}
+
+.item:hover .text_threeTitle {
+  max-height: 200px; /* 足够容纳文字的高度 */
+  opacity: 1;
+  margin-top: 0.5rem;
+}
+
+/* 标题基础样式 */
+.text_oneTitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.text_twoTitle {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .business-list {
+    bottom: 1.5rem;
+    left: 1.5rem;
+  }
+  
+  .text_oneTitle {
+    font-size: 1.25rem;
+  }
+}
+
+/* 装饰小点 */
+.featured-grid .icon {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  gap: 4px;
+}
+.featured-grid .icon div {
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+}
