@@ -3,7 +3,6 @@ import toast from 'react-hot-toast';
 
 /**
  * 后端 API 客户端配置
- * 务实原则：统一处理鉴权、路径解析与异常拦截
  */
 export const apiClient = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
@@ -13,10 +12,6 @@ export const apiClient = axios.create({
 // 记录是否正在处理 401 状态，防止并发请求导致 toast 刷屏
 let isUnauthorized = false;
 
-/**
- * 务实修复：动态生成静态资源的完整访问网址
- * 解决前端 3000 端口请求不到后端 8000 端口图片的问题
- */
 export const getFileUrl = (path: string | undefined) => {
   if (!path) return '';
   if (path.startsWith('http')) return path;
@@ -106,4 +101,5 @@ apiClient.interceptors.response.use(
     
     return Promise.reject(error);
   }
+
 );
