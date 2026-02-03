@@ -223,3 +223,10 @@ frontend/yarn-error.log*
 # 系统文件
 .DS_Store
 Thumbs.db
+
+# --- Backend Specific Adjustments ---
+backend/.env
+backend/__pycache__/
+backend/venv/
+backend/env/
+backend/.pytest_cache/
