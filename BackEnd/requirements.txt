@@ -1,0 +1,22 @@
+# --- 核心 Web 框架 ---
+fastapi==0.109.0
+uvicorn[standard]==0.27.0  # 异步 ASGI 服务器，包含 standard 依赖以支持 websockets 和性能优化
+python-multipart==0.0.7    # 必须，用于处理文件上传（如 LOGO、案例图、验收图）
+
+# --- 数据库与迁移 ---
+sqlalchemy==2.0.25         # SQLAlchemy 2.0 异步 ORM
+asyncpg==0.29.0            # PostgreSQL 异步驱动
+alembic==1.13.1            # 数据库版本迁移管理
+
+# --- 安全、鉴权与频率限制 ---
+passlib[bcrypt]==1.7.4     # 密码哈希加密
+python-jose[cryptography]==3.3.0  # JWT Token 生成与解析
+slowapi==0.1.9             # 基于 IP 的请求频率限制
+
+# --- 配置与工具 ---
+pydantic-settings==2.1.0   # 统一环境变量管理
+fastapi-mail==1.4.1        # 邮件发送服务
+python-dotenv==1.0.1       # 读取 .env 文件
+
+# --- 测试与脚本 ---
+requests==2.31.0           # HTTP 客户端
