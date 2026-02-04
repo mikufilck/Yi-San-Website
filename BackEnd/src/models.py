@@ -1,6 +1,6 @@
 # backend/src/models.py
 from __future__ import annotations
-from pydantic import BaseModel, EmailStr, Field, ConfigDict, computed_field
+from pydantic import BaseModel, EmailStr, Field, ConfigDict, computed_field, model_validator
 from datetime import datetime
 from typing import Optional, List, Any, TypeVar, Generic
 from enum import Enum
@@ -93,6 +93,13 @@ class CaseImageSchema(BaseModel):
     is_primary: bool = False
     order: int = 0
 
+    @model_validator(mode='before')
+    @classmethod
+    def transform_string_to_dict(cls, data: Any) -> Any:
+        if isinstance(data, str):
+            return {"url": data, "alt": "Yisan Design", "is_primary": True}
+        return data
+
 class CaseBase(BaseModel):
     slug: str = Field(..., pattern="^[a-z0-9-]+$")
     title: str
@@ -115,6 +122,16 @@ class CaseResponse(CaseBase):
     created_at: datetime
     updated_at: Optional[datetime] = None
     model_config = ConfigDict(from_attributes=True)
+
+class CategoryInfo(BaseModel):
+    """分类基础信息"""
+    slug: str
+    label: str
+    backend_value: str
+
+class CaseCategoryResponse(BaseModel):
+    """分类列表响应"""
+    categories: List[CategoryInfo]
 
 class ProductBase(BaseModel):
     category: str
