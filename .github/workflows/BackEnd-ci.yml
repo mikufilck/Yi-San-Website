@@ -55,4 +55,4 @@ jobs:
           # 2. 等待服务启动
           sleep 5
           # 3. 运行 API 测试脚本
-          python scripts/test_api.py
+          python scripts/test_api_ci.py
