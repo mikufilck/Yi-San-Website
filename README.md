@@ -3,12 +3,17 @@
 
 # 后端配置
 cd BackEnd
+
 python -m venv .venv
+
 source .venv/bin/activate  # Windows 使用 .venv\Scripts\activate
+
 pip install -r requirements.txt
 ## env
 DATABASE_URL=postgresql+asyncpg://user:password@localhost/design_cases_db
+
 SECRET_KEY=你的加密密钥
+
 MAIL_PASSWORD=你的邮件授权码
 
 # 数据库初始化
@@ -17,6 +22,7 @@ MAIL_PASSWORD=你的邮件授权码
 
 ## Linux/macOS
 chmod +x ./scripts/setup_postgres.sh
+
 ./scripts/setup_postgres.sh
 
 # 许可证
