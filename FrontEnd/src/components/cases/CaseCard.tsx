@@ -15,12 +15,8 @@ const CaseCard: React.FC<CaseCardProps> = ({
 }) => {
   const navigate = useNavigate();
   
-  // 核心修复：清理了此处的不可见非法空格字符
   const primaryImage = caseStudy.images?.find(img => (img as any).isPrimary) || caseStudy.images?.[0];
   
-  /**
-   * 务实修复：路径清理函数保持不变
-   */
   const cleanPath = (path: string) => {
     if (!path) return '/images/placeholder.jpg';
     if (path.startsWith('http')) return path;
@@ -38,9 +34,6 @@ const CaseCard: React.FC<CaseCardProps> = ({
     return labels[category] || '设计案例';
   };
 
-  /**
-   * 务实重构：平滑的 SPA 跳转逻辑
-   */
   const handleNavigate = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (onClick) {
