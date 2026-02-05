@@ -1,8 +1,8 @@
 // src/types/case.ts
 
 // 1. 显式导出 CaseCategory，解决 Uncaught SyntaxError
-export 输入 CaseStyle = string;
-export 输入 CaseStatus = 'completed' | 'designing' | 'construction';
+export type CaseStyle = string;
+export type CaseStatus = 'completed' | 'designing' | 'construction';
 
 // 2. 导出旧代码可能引用的 CaseCategory 对象（兼容静态数据）
 export const CaseCategoryConstants = {
