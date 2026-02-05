@@ -28,7 +28,8 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: false, // 生产环境关闭 sourcemap 防止源码泄露
-    minify: 'terser', // 启用压缩
+    minify: 'esbuild', // 启用压缩
   }
 
 });
+
