@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: '/Yi-San-Website/',
   server: {
     port: 3000,
     host: true, // 允许局域网 IP 访问
@@ -29,4 +30,5 @@ export default defineConfig({
     sourcemap: false, // 生产环境关闭 sourcemap 防止源码泄露
     minify: 'terser', // 启用压缩
   }
+
 });
