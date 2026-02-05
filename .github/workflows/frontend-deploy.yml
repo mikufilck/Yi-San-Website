@@ -1,0 +1,43 @@
+name: Deploy Frontend to Pages
+
+on:
+  push:
+    branches: ["main"] # 只有推送到 main 分支时才触发
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: './FrontEnd/package-lock.json'
+
+      - name: Build Frontend
+        run: |
+          cd FrontEnd
+          npm install
+          npm run build 
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # 指向构建产物所在的路径
+          path: './FrontEnd/dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
