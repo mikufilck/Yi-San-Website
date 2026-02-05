@@ -4,7 +4,7 @@ import { CaseFilter as FilterType, CaseCategory } from '../../types/case';
 interface CaseFilterProps {
   filter: FilterType;
   onChange: (filter: FilterType) => void;
-  categories?: CaseCategory[];
+  categories?: string[];
 }
 
 const CaseFilter: React.FC<CaseFilterProps> = ({ 
@@ -12,7 +12,7 @@ const CaseFilter: React.FC<CaseFilterProps> = ({
   onChange, 
   categories = [] 
 }) => {
-  const handleCategoryChange = (category: CaseCategory) => {
+  const handleCategoryChange = (category: string) => {
     const currentCategories = filter.categories || [];
     const newCategories = currentCategories.includes(category)
       ? currentCategories.filter(c => c !== category)
@@ -114,5 +114,6 @@ const CaseFilter: React.FC<CaseFilterProps> = ({
     </div>
   );
 };
+
 
 export default CaseFilter;
