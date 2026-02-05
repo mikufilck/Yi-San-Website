@@ -20,7 +20,7 @@ const CaseCard: React.FC<CaseCardProps> = ({
   const cleanPath = (path: string) => {
     if (!path) return '/images/placeholder.jpg';
     if (path.startsWith('http')) return path;
-    return path.replace(/^\\/public/, '');
+    return path.replace(/^\/public/, '');
   };
 
   const getCategoryLabel = (category: any): string => {
@@ -83,3 +83,4 @@ const CaseCard: React.FC<CaseCardProps> = ({
 };
 
 export default CaseCard;
+
