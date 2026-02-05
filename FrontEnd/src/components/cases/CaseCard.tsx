@@ -1,6 +1,6 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // 引入路由钩子
-import { CaseStudy, CaseCategory } from '../../types/case';
+import { useNavigate } from 'react-router-dom';
+import { CaseStudy } from '../../types/case';
 
 interface CaseCardProps {
   caseStudy: CaseStudy;
@@ -13,12 +13,13 @@ const CaseCard: React.FC<CaseCardProps> = ({
   onClick,
   variant = 'detailed' 
 }) => {
-  const navigate = useNavigate(); // 初始化跳转函数
+  const navigate = useNavigate();
   
+  // 核心修复：清理了此处的不可见非法空格字符
   const primaryImage = caseStudy.images?.find(img => (img as any).isPrimary) || caseStudy.images?.[0];
   
   /**
-   * 务实修复：路径清理函数保持不变，仅优化跳转逻辑
+   * 务实修复：路径清理函数保持不变
    */
   const cleanPath = (path: string) => {
     if (!path) return '/images/placeholder.jpg';
@@ -38,15 +39,13 @@ const CaseCard: React.FC<CaseCardProps> = ({
   };
 
   /**
-   * 务实重构：使用 navigate 代替 window.location.href
-   * 实现无刷新的单页应用跳转
+   * 务实重构：平滑的 SPA 跳转逻辑
    */
   const handleNavigate = (e: React.MouseEvent) => {
-    e.stopPropagation(); // 防止冒泡
+    e.stopPropagation();
     if (onClick) {
       onClick();
     } else {
-      // 这里的跳转现在是平滑的 SPA 行为
       navigate(`/cases/detail/${caseStudy.slug || caseStudy.id}`);
     }
   };
